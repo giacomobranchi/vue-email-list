@@ -10,9 +10,10 @@
 <body>
 
     <div id="app">
-        <ul>
-            <li v-for="mail in randomMail">{{mail}}</li>
+        <ul v-if="randomMail.length == size">
+            <li v-for=" mail in randomMail">{{mail}}</li>
         </ul>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"

@@ -4,11 +4,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            randomMail: []
+            randomMail: [],
+            size: 10
         }
     },
     methods: {
         getMail(n) {
+
             for (let i = 0; i < n; i++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                     .then(response => {
@@ -16,10 +18,9 @@ createApp({
                         this.randomMail.push(response.data.response);
                     });
             }
-
         }
     },
     mounted() {
-        this.getMail(10);
+        this.getMail(this.size);
     }
 }).mount('#app')
